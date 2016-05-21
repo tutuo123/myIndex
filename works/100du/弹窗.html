@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul,body,li,p {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .clear {
+            zoom: 1;
+        }
+        .clear:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        ul {
+            width: 210px;
+            padding-top: 2px;
+            padding-left: 2px;
+            margin:100px auto;
+            border: 1px solid black;
+        }
+        li {
+            width: 50px;
+            height: 50px;
+            margin-right: 2px;
+            margin-bottom: 2px;
+            background: red;
+            float: left;
+        }
+        .img {
+            background: yellow;
+        }
+/*pop*/
+#pop p {
+    width: 300px;  height: 100px;  border: 1px solid #c0c0c0;  box-shadow: 3px 4px 0 #c0c0c0; background: #ffffff;  position: relative;  line-height: 20px;  left: 7px;  top:-14px;  z-index: 2;
+}
+#pop p img {
+    border: 1px solid #cfcfcf;  float: left;  margin: 10px 0 0 10px;
+}
+#pop p strong {
+    position: relative;  display: block;  height: 20px;  left: 10px;  top:10px;
+}
+#pop p span {
+    position: relative;  display: block;  height: 20px;  left: 10px;  top:20px;
+}
+#pop p em {
+    position: relative;  display: block;  height: 20px;  left: 10px;  top:30px;
+}
+#pop div {
+    background: url(img/<.gif) no-repeat;  position: relative;  top: 44px;  width: 8px;  height: 14px;  z-index: 3;
+}
+#pop {
+    height: 106px;  width: 312px;
+}
+
+    </style>
+</head>
+<body>
+    <ul class="clear">
+        <li></li>
+        <li class="img">
+        </li>
+        <li></li>
+        <li class="img"></li>
+        <li class="img"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <article id="pop">
+        <div></div>
+        <p>
+            <img src="img/today2.gif">
+            <strong>我的老家</strong>
+            <span>就住在这个屯</span>
+            <em>我是这</em>
+        </p>
+    </article>
+</body>
+</html>

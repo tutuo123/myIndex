@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,ul,p {
+            margin: 0; padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        img {
+            vertical-align: top;
+        }
+        section{
+            width: 1000px;margin: 50px auto;position: relative;
+        }
+        #list {
+            height: 350px;width: 1000px;position: relative;
+        }
+        #list img {
+            position: absolute;
+        }
+
+        #list li:nth-of-type(1)>img{
+            top:100px;left: 350px; width: 300px; z-index: 7;opacity: 0.001;
+        }
+        #list li:nth-of-type(2)>img{
+            top:0;left: 0; width: 300px;  z-index: 7;opacity: 0.001;
+        }
+        #list li:nth-of-type(3)>img{
+            top:100px;left: 0; width: 300px;  z-index: 8;opacity: 0.6;
+        }
+        #list li:nth-of-type(4)>img{
+            top:50px;left: 50px; width: 500px;  z-index: 9;opacity: 0.8;
+        }
+        #list li:nth-of-type(5)>img{
+            top:0; left: 150px; width: 700px;  z-index: 10;opacity: 1;
+        }
+        #list li:nth-of-type(6)>img{
+            top:50px;left: 450px; width: 500px;  z-index: 9;opacity: 0.8;
+        }
+        #list li:nth-of-type(7)>img{
+            top:100px;left: 700px; width: 300px; z-index: 8;opacity: 0.6;
+        }
+        #list li:nth-of-type(8)>img{
+            top:0;left: 700px ; width: 300px; z-index: 7;opacity: 0.001;
+        }
+
+
+        #btn p{
+            position: absolute;top: 150px; height:50px ; width: 50px;background: pink; border-radius: 25px;z-index: 11;
+            font-size: 30px;text-align: center;line-height: 50px;opacity: 0.4;
+        }
+        #btn p:nth-of-type(1) {
+            left: 200px;
+        }
+        #btn p:nth-of-type(2) {
+            right: 200px;
+        }
+        #btn p:hover {
+            opacity: 0.8; cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var oList = document.getElementById('list');
+            var aImg = oList.getElementsByTagName('img');
+            var oBtn = document.getElementById('btn');
+            var aBtn = oBtn.getElementsByTagName('p');
+            var arr = [];
+            var z = 0;
+            var o = 0;
+
+            for (var i = 0; i < aImg.length; i++) {
+                z = getStyle(aImg[i], 'zIndex');
+                o = getStyle(aImg[i], 'opacity') * 100;
+                arr.push({
+                    left: aImg[i].offsetLeft,
+                    top: aImg[i].offsetTop,
+                    width: aImg[i].offsetWidth,
+                    zIndex: z,
+                    opacity: o
+                });
+            }
+            aBtn[0].onclick = function () {
+                arr.push(arr[0]);
+                arr.shift();
+                for (var i = 0; i < aImg.length; i++) {
+                    perMove(aImg[i], {
+                        left: arr[i].left,
+                        top: arr[i].top,
+                        width: arr[i].width,
+                        opacity: arr[i].opacity
+                    }, 10);
+                    aImg[i].style.opacity = arr[i].opacity;
+                    aImg[i].style.zIndex = arr[i].zIndex;
+                }
+            };
+
+            aBtn[1].onclick = function () {
+                arr.unshift(arr[arr.length - 1]);
+                arr.pop();
+                for (var i = 0; i < aImg.length; i++) {
+                    perMove(aImg[i], {
+                        left: arr[i].left,
+                        top: arr[i].top,
+                        width: arr[i].width,
+                        opacity: arr[i].opacity
+                    }, 10);
+                    aImg[i].style.opacity = arr[i].opacity;
+                    aImg[i].style.zIndex = arr[i].zIndex;
+                }
+
+            };
+
+
+            function getStyle(obj, attr) {
+                if (obj.currentStyle) {
+                    return obj.currentStyle[attr];
+                }
+                else {
+                    return getComputedStyle(obj, false)[attr];
+                }
+            }
+
+
+            function perMove(obj, json, dir, fn) {
+                var iCur = 0;
+                var alpha = 0;
+
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function () {
+                    var bStop = true;
+                    for (var attr in json) {
+                        if (attr == 'opacity') {
+                            iCur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                        } else {
+                            iCur = parseInt(getStyle(obj, attr));
+                        }
+
+                        if (iCur != parseInt(json[attr]))
+                            bStop = false;
+
+                        var iSpeed = (parseInt(json[attr]) - iCur) / dir;
+
+                        iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+
+
+                        if (attr == 'opacity') {
+                            alpha = iCur + iSpeed;
+                            obj.style.filter = 'alpha(opacity=' + alpha + ')';
+                            obj.style[attr] = alpha / 100;
+                        } else {
+                            obj.style[attr] = iCur + iSpeed + 'px';
+                        }
+                    }
+
+                    if (bStop) {
+                        clearInterval(obj.timer);
+                        fn && fn();
+                    }
+
+                }, 30);
+            }
+        }
+    </script>
+</head>
+<body>
+<section>
+    <ul id="list">
+        <li><img src="img/11.jpg"></li>
+        <li><img src="img/22.jpg"></li>
+        <li><img src="img/33.jpg"></li>
+        <li><img src="img/44.jpg"></li>
+        <li><img src="img/55.jpg"></li>
+        <li><img src="img/66.jpg"></li>
+        <li><img src="img/77.jpg"></li>
+        <li><img src="img/88.jpg"></li>
+    </ul>
+    <div id="btn">
+        <p><</p>
+        <p>></p>
+    </div>
+</section>
+</body>
+</html>

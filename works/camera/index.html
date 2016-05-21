@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0;maximum-scale=1.0"/>
+    <title>相册</title>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 +'px';
+    </script>
+    <style>
+        body,ul {
+            margin: 0; padding: 0; font-size: 0.15rem; font-family:Arial,"宋体";
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none; color: #ffffff
+        }
+        article {
+            width: 100%; height: 100%; position: absolute; top: 0; left: 0; overflow: hidden;
+        }
+        header {
+            width: 100%; height: 0.45rem; background: linear-gradient(to bottom, #292929, #1f1f1f); color: #ffffff;
+            line-height: 0.45rem; text-align: center; position: absolute; left: 0; top: 0;
+            border-bottom: 2px solid #353535; border-top: 2px solid #353535; box-sizing: border-box;
+        }
+        section {
+            width: 100%; position: absolute; top:0.45rem;bottom: 0.55rem; overflow: auto;background: black;
+        }
+        footer {
+            width: 100%; height: 0.55rem; background: linear-gradient(to bottom,#1e1f21,#121212);
+            position: absolute;left: 0;bottom: 0;
+        }
+        header a {
+            border: 2px solid #0d0d0d; border-radius: 6px; box-shadow: 0 0 3px #0d0d0d,inset 0 0 2px #232323;
+            width: 0.5rem; height: 0.25rem; position: absolute; line-height: 0.25rem; top: 0.06rem;right: 0.1rem;
+        }
+        header a:nth-of-type(1) {
+            left: 0.1rem;display: none;
+        }
+        section ul {
+            position: relative;
+        }
+        section li {
+            width: 1rem; height: 1rem; float: left; border: 1px solid #000000;box-sizing: border-box;
+            position: absolute; transition: .5s,.5s left,.5s top;
+        }
+        footer a {
+            width: 50%; float: left; text-align: center; line-height: 0.55rem; box-sizing: border-box;
+        }
+        footer a:nth-of-type(1){
+            border-right: 1px solid #222222;
+        }
+        footer a:nth-of-type(2){
+            border-left: 1px solid #222222;
+        }
+        footer .active {
+            background:linear-gradient(to bottom,#101010,#070707); border-color:#0e0e0e;
+        }
+        span {
+            position: absolute; top: 100%; left: calc(50% - 0.6rem); width: 1.2rem; height: 1.2rem;
+        }
+        span:nth-of-type(1) {
+            background: url(img/recycle.png) no-repeat; background-size: cover;
+        }
+        span:nth-of-type(2) {
+            background: url(img/recycle2.png) no-repeat; background-size: cover;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var aBtn = document.getElementsByTagName('a');
+            var oList = document.getElementById('list');
+            var aLi = oList.getElementsByTagName('li');
+            var arr = [
+                'video/1.jpg','video/2.jpg','video/3.jpg','video/4.jpg','video/5.jpg','video/6.jpg','video/7.jpg','video/8.jpg',
+                'video/9.jpg','video/10.jpg','video/11.jpg','video/12.jpg','video/13.jpg','video/14.jpg','video/15.jpg','video/16.jpg'
+            ];
+            var onOff=true;
+            var arrclear = [];
+
+            for(var i=0; i<arr.length;i++) {
+                var oLi = document.createElement('li');
+                oList.appendChild(oLi);
+                aLi[i].style.background = 'url(' + arr[i] + ')';
+                aLi[i].style.backgroundSize =  'cover';
+            }
+
+            function fnRecss() {
+                for (var i = 0; i < aLi.length; i++) {
+                    aLi[i].style.left = i % 3 + 'rem';
+                    aLi[i].style.top = Math.floor(i / 3) + 'rem';
+                }
+            }
+
+            fnRecss();
+
+            aBtn[1].addEventListener('touchend',fnEnd,false);
+            aBtn[0].addEventListener('touchend',fnRemove,false);
+
+            function fnEnd(){
+
+                if(onOff) {
+                    this.innerHTML = '取消';
+                    for (var i = 0; i < aLi.length; i++) {
+                        aLi[i].onOff = true;
+                        aLi[i].index = i;
+                        aLi[i].addEventListener('touchend', fnSelected, false);
+                    }
+                }else{
+                    this.innerHTML = '选择';
+                    aBtn[0].style.display='none';
+                    arrclear = [];
+                    for (var i = 0; i < aLi.length; i++) {
+                        aLi[i].style.opacity = '1';
+                        aLi[i].removeEventListener('touchend', fnSelected, false)
+                    }
+                }
+                onOff = !onOff;
+            }
+            function  fnSelected(){
+                aBtn[0].style.display = 'block';
+                if(this.onOff) {
+                    this.style.opacity = '0.3';
+                    this.onOff = false;
+                    arrclear.push(this.index);
+                }else{
+                    this.style.opacity = '1';
+                    this.onOff = true;
+                    arrclear.splice(arrIndexOf(arrclear,this.index),1)
+                }
+            }
+
+            function fnRemove(){
+                arrclear = arrclear.sort(function (a,b){
+                   return a-b
+                });
+                while(arrclear.length){
+                    var num=arrclear.pop();
+                    oList.removeChild(aLi[num]);
+                }
+                aBtn[0].style.display = 'none';
+                aBtn[1].innerHTML = '选择';
+                onOff= true;
+                fnRecss();
+                for (var i = 0; i < aLi.length; i++) {
+                    aLi[i].removeEventListener('touchend', fnSelected, false)
+                }
+            }
+
+            function arrIndexOf(arr,v) {
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i] == v) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+        }
+    </script>
+</head>
+<body>
+<article>
+    <header id="btn">
+        <a href="javascript:;">删除</a>
+        相机相册
+        <a href="javascript:;">选择</a>
+    </header>
+    <section>
+        <ul id="list">
+        </ul>
+    </section>
+    <footer>
+        <a class="active" href="javascript:;">相机相册</a>
+        <a href="javascript:;">所有相册</a>
+    </footer>
+    <span></span>
+    <span></span>
+</article>
+</body>
+</html>

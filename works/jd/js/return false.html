@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.12.2.min.js"></script>
+    <style>
+        body {
+            height: 2000px;
+        }
+        div {
+            width: 100px; height: 100px; background: red;position: fixed; left: 0; top: 0;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('div').on('click', function () {
+                $(this).animate({'left':300},500);
+                return false
+            });
+
+            $(document).on('click', function () {
+                $('div').animate({'left':0},500)
+            })
+        })
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

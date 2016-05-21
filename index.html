@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <title>王英超的个人网站</title>
+    <link href="img/icon.ico" rel="shortcut icon">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/css.css" rel="stylesheet">
+    <script src="js/jquery-1.12.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/js.js"></script>
+</head>
+<body>
+<!-- nav -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img class="logo" src="img/log.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="nav navbar-nav nav_margin navbar-right">
+                    <li class="li_margin">
+                        <a class="hidden_button" href="#carousel_t"><span class="glyphicon glyphicon-home"></span> 首页</a>
+                    </li>
+                    <li class="li_margin">
+                        <a class="hidden_button" href="#my_skill"><span class="glyphicon glyphicon-pencil"></span> 我的技能</a>
+                    </li>
+                    <li class="dropdown li_margin">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-indent-right"></span> 整站作品 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="hidden_button" href="#jd">京东首页</a></li>
+                            <li><a class="hidden_button" href="#du100">100度电商网站</a></li>
+                            <li><a class="hidden_button" href="#cctv">微信端整站</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown li_margin">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-file"></span> demos<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="hidden_button" href="#my_demos">rem布局移动端相册</a></li>
+                            <li><a class="hidden_button" href="#my_demos">3D折纸</a></li>
+                            <li><a class="hidden_button" href="#my_demos">翻滚式切换</a></li>
+                        </ul>
+                    </li>
+                    <li class="li_margin">
+                        <a class="hidden_button" href="#me"><span class="glyphicon glyphicon-user"></span> 关于我</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- end nav -->
+<!-- carousel -->
+    <div id="carousel_t"  class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel_t" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel_t" data-slide-to="1"></li>
+            <li data-target="#carousel_t" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="item active">
+                <img class="carousel_img" src="img/macbook1.jpg" alt="...">
+            </div>
+            <div class="item">
+                <img class="carousel_img" src="img/h5.jpg" alt="...">
+            </div>
+            <div class="item">
+                <img class="carousel_img" src="img/dm.jpg" alt="...">
+            </div>
+        </div>
+
+        <a class="left carousel-control" href="#carousel_t" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel_t" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+<!-- end carousel -->
+<!-- my_skill -->
+    <div id="my_skill" class="container-fluid">
+        <blockquote>
+            <p class="label label-primary"><span class="glyphicon glyphicon-pencil"></span> 我的技能</p>
+        </blockquote>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <div id="panel_model" class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><span class="glyphicon glyphicon-bookmark"></span> Js</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>熟练使用原生JS，可用纯原生JS编写市面主流网页的JS效果，熟练使用DOM及其优化;理解面向对象编程;
+                           能够封装模块化代码，并有较好的扩展性及可维护性。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <div class="panel panel-success panel1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><span class="glyphicon glyphicon-tag"></span> Jq</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>熟练使用JQ，了解部分源码思想以及实现原理，可编写插件，并用JQ百分之百的模拟了京东首页的JS部分。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <div class="panel panel-info panel1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><span class="glyphicon glyphicon-tags"></span> Css+Html</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>所编写代码完全符合W3C标准，布局清晰合理，扩展与可维护性强。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <div class="panel panel-warning panel1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><span class="glyphicon glyphicon-book"></span> Css3+Html5</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>能够灵活运用新增标签与样式的使用，整站作品中，大量使用了新增标签及样式。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <div class="panel panel-primary panel1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><span class="glyphicon glyphicon-bookmark"></span> Bootstrap</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>本网站便采用了Bootstrap框架搭建，并对其框架搭建原理有一定了解，了解Less。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <div class="panel panel-success panel1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><span class="glyphicon glyphicon-tag"></span> Angularjs</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>了解其MVVM原理，如有需求能够快速掌握。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <div class="panel panel-info panel1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><span class="glyphicon glyphicon-tags"></span> TweenMax</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>能够较熟练的运用TweenMax完成较为复杂的动画，及动画管理。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <div class="panel panel-warning panel1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><span class="glyphicon glyphicon-book"></span> Ajax</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>熟练使用Ajax进行前后端数据交互，可通过原生JS和JQ来实现，京东首页整站作品中的数据获取即模拟了
+                           从后端获取数据的处理。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <div class="panel panel-primary panel1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><span class="glyphicon glyphicon-bookmark"></span> Sea</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>掌握Sea的使用，可为多人协作完成模块化代码带来便利。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <div class="panel panel-success panel1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><span class="glyphicon glyphicon-tag"></span> Git/Github</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>熟练Git/Github的使用，以便利多人协作开发及代码管理。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <div class="panel panel-info panel1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><span class="glyphicon glyphicon-tags"></span> Visio</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>熟练使用Visio，可为开放文档的编写以及流程设置带来便利。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <div class="panel panel-warning panel1">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><span class="glyphicon glyphicon-book"></span> Mindmanager</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>熟练使用Mindmanager，可为复杂的流程进行系统化梳理。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- end my_skill -->
+<!-- my_works -->
+    <div id="my_works" class="container-fluid">
+        <blockquote>
+            <p class="label label-danger"><span class="glyphicon glyphicon-indent-right"></span> 整站作品</p>
+        </blockquote>
+        <div class="panel-group" id="jd">
+            <div class="panel panel-danger">
+                <div class="panel-heading text-center">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#jd" href="#collapseOne">
+                            <span class="glyphicon glyphicon-folder-open"></span> JD首页 ———— 百分百还原
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="col-md-6 col-xs-12">
+                            <a class="thumbnail" href="http://192.168.1.6/my/works/jd/index.html"><img src="img/jd.jpg"></a>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <a class="thumbnail" href="http://192.168.1.6/my/works/jd/index.html"><img src="img/jd1.jpg"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-group" id="du100">
+            <div class="panel panel-success">
+                <div class="panel-heading text-center">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#du100" href="#collapseTwo">
+                            <span class="glyphicon glyphicon-folder-open"></span> 100度电商网 ———— 原生JS手写
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse ">
+                    <div class="panel-body">
+                        <div class="col-md-6 col-xs-12">
+                            <a class="thumbnail" href="http://192.168.1.6/my/works/100du/index.html"><img src="img/100du.jpg"></a>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <a class="thumbnail" href="http://192.168.1.6/my/works/100du/index.html"><img src="img/100du1.jpg"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-group" id="cctv">
+            <div class="panel panel-warning">
+                <div class="panel-heading text-center">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#cctv" href="#collapseThree">
+                            <span class="glyphicon glyphicon-folder-open"></span> 微信页整站 ———— 原生JS手写
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="col-md-6 col-xs-12">
+                            <a class="thumbnail" href="http://192.168.1.6/my/works/mobile/index.html"><img src="img/cctv.jpg"></a>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <a class="thumbnail" href="http://192.168.1.6/my/works/mobile/index.html"><img src="img/cctv1.jpg"></a>
+                        </div>
+                        <p class="text-center"><span class="label label-danger">提醒</span> 需要通过移动端开启</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- end my_works -->
+<!-- my_demos -->
+<div id="my_demos" class="container-fluid">
+    <blockquote>
+        <p class="label label-warning"><span class="glyphicon glyphicon-file"></span> demos</p>
+    </blockquote>
+    <div class="btn btn-group btn-group-justified">
+        <div class="btn-group ">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_1">
+                rem布局移动
+            </button>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal_2">
+                3D折纸
+            </button>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_4">
+                翻滚式切换
+            </button>
+        </div>
+    </div>
+    <div class="modal fade" id="modal_1" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">rem布局移动端相册</h3>
+                </div>
+                <div class="modal-body">
+                    <a class="thumbnail" href="http://192.168.1.6/my/works/camera/index.html"><img src="img/rem.jpg"></a>
+                    <p class="text-center"><span class="label label-danger">提醒</span> 需要通过移动端开启</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal_2" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">折纸式切换</h3>
+                </div>
+                <div class="modal-body">
+                    <div id="wrap">
+                        <h2>标题</h2>
+                        <div>
+                            <span>1111</span>
+                            <div>
+                                <span>2222</span>
+                                <div>
+                                    <span>3333</span>
+                                    <div>
+                                        <span>4444</span>
+                                        <div>
+                                            <span>5555</span>
+                                            <div>
+                                                <span>6666</span>
+                                                <div>
+                                                    <span>7777</span>
+                                                    <div>
+                                                        <span>8888</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input id="btn" value="按钮" type="button">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal_4" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">翻滚式切换</h3>
+                </div>
+                <div class="modal-body">
+                    <article id="demo_1" >
+                        <img class="show" src="img/11.jpg"/>
+                        <img src="img/22.jpg"/>
+                        <img src="img/33.jpg"/>
+                        <img src="img/44.jpg"/>
+                        <img src="img/55.jpg"/>
+                        <img src="img/66.jpg"/>
+                        <input type="button" value="<">
+                        <input type="button" value=">">
+                    </article>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end my_demos -->
+<!-- me -->
+<div id="me" class="container-fluid">
+    <blockquote>
+        <p class="label label-success"><span class="glyphicon glyphicon-user"></span> 关于我</p>
+    </blockquote>
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            <div class="thumbnail">
+                <img src="img/hlj.jpg" alt="...">
+                <div class="caption">
+                    <h4>我与网页</h4>
+                    <h5>黑龙江大学，2010级，电子工程自动化专业，工学学士。</h5>
+                    <h5>有较强的学习能力，以上所有作品及相关技能均通过视频及书籍自学。</h5>
+                    <h5>本网页为响应式结构，采用了Bootstrap框架搭建，由于时间有限和为了充分使用该框架，未对美观与功能进行细致开发，敬请谅解。</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="thumbnail">
+                <img src="img/cyou.jpg" alt="...">
+                <div class="caption">
+                    <h4>工作经历</h4>
+                    <p>2014年毕业后校招进入<mark>搜狐畅游</mark>，工作<mark>两年</mark>，担任<mark>游戏分析师</mark>一职，负责公司内部产品与海内外手游/端游的评测任务，在两年的工作中丰富了自己在大互联网中的眼界，加强了发现问题、解决的能力，了解了完整项目的研发、上线、运营流程，发现自己更喜欢也更适合写代码，于是决定转行Web前端这个绚丽的职业!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="thumbnail">
+                <img src="img/tell.jpg" alt="...">
+                <div class="caption">
+                    <h4>联系方式</h4>
+                    <h5><span class="glyphicon glyphicon-phone"></span> : 18518315403</h5>
+                    <h5><span class="glyphicon glyphicon-envelope"></span> : 545573421@qq.com</h5>
+                    <h5><span class="glyphicon glyphicon-home"></span> : 石景山区八角游游乐园地铁站附近</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
